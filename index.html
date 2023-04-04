@@ -9,31 +9,31 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
 </head>
 <body>
-    <div class="container-fluid" id="mainContainer">
+    <div class="container" id="mainContainer">
 
         <!-- quiz timer and view scores -->
         <div class="row">
-            <div class="col text-left">
+            <div class="col-12 col-md-9">
                 <a href="#" id="viewScore">View Scores</a>
             </div>
             <div id="timer" class="col text-right">
-                <p class="far fa-clock"> Clock: <span id="timeLeft">0</span></p>
+                <p class="far fa-clock display-6 text-center"> Clock: <span id="timeLeft">0</span></p>
             </div>
             <div id="timeGone" class="col text-right" style="display: none;">Time Up!!!!!!</div>
         </div>
 
         <!-- staring quiz on the start screen -->
-        <main class="row text-left justify-content-center">
-            <div id="startQuiz" class="col-md-2 justify-content-center">
-                <h1 class="font-weight-bold pl-5 pr-5">Coding Quiz</h1>
+        <main class="display-3 text-center row justify-content-center mt-4">
+            <div id="startQuiz" class="col-12 col-md-8 ">
+                <h1 class="font-weight-bold">Coding Quiz</h1>
                 <h2 id="h2Header" class="p-5">Test yourself on Javascript concepts </h2>
-                <button type="button" id="start-button" class="btn btn-info ml-5 align-center">Start</button>
+                <button type="button" id="start-button" class="btn btn-info p-3 my-2 w-100">Start</button>
             </div>
 
             <!-- Questions -->
             <div id="questionTag" style="display:none;">
-                <p id="questions" class="pl-5 ml-2 pt-5 justify-content-center font-weight-bold"></p>
-                    <div class="pl-5 pt-2 pb-3 m-2 justify-content-center">
+                <p id="questions" class="pl-5 ml-2 pt-5 font-weight-bold"></p>
+                    <div class="pl-5 pt-2 pb-3 m-2" id="answers">
                         <p><button id="btNum0" class="btn btn-dark-bg-sbutle"></button></p>
                         <p><button id="btNum1" class="btn btn-dark-bg-sbutle"></button></p>
                         <p><button id="btNum2" class="btn btn-dark-bg-sbutle"></button></p>
@@ -44,7 +44,7 @@
             </div>
 
             <!-- Scores -->
-            <div class="pl-5 ml-2 pt-5 justify-content-center font-weight-bold" id="scoreSummary" style="display: none;">
+            <div class="pl-5 ml-2 pt-5 font-weight-bold" id="scoreSummary" style="display: none;">
                 <div class="col-2"></div>
                 <div class="col-8 text-left">
                     <h2 class="font-weight-bold pt-2 pb-3 m-2">Your final score is <span id="finalScore"></span> !</h2>
@@ -57,7 +57,7 @@
             </div>
 
              <!-- highscores section -->
-             <div id="highScoreSection" class="pl-5 ml-4 pt-5 justify-content-center font-weight-bold" style="display: none;">
+             <div id="highScoreSection" class="pl-5 ml-4 pt-5  font-weight-bold" style="display: none;">
                 <h2 class="font-weight-bold pt-2 pb-3 mb-2">High Scores</h2>                   
                 
                 <div id="listOfHighScores" class="list-group list-group-flush pt-2 pb-3 mb-2"></div>

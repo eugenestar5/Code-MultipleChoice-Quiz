@@ -8,9 +8,9 @@ body {
     justify-content: left;
 }
 
-main {
+/* main {
     width: 100%;
-}
+} */
 
 p {
     font-family: sans-serif;
@@ -21,4 +21,13 @@ p {
 #start-button {
     font-size: 30px;
     width: 300px;
+}
+
+
+#questions {
+    font-size: 30px;
+}
+
+#answers {
+    font-size: 20px;
 }

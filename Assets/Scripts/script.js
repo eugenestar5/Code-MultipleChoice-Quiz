@@ -6,7 +6,7 @@ var Quizquestions = [
         answer: "b. Number"
     },
     {
-        question: "Negative Infinity is a number is JS which can be derived by dividing a negative number by _____ ",
+        question: "Negative Infinity is a number in JS which can be derived by dividing a negative number by _____ ",
         choices: ["a. one", "b. undefined", "c. zero", "d. three"],
         answer: "c. zero"
     },
@@ -28,11 +28,11 @@ var Quizquestions = [
     {
         question: "How do you call a function named myFunction?",
         choices: ["a. call myFunction()", "b. call function myFunction()", "c. myFunction()", "d. call myFunction"],
-        answer: "c. myFunctions()"
+        answer: "c. myFunction()"
     },
     {
         question: "What function is used to retrieve an ID attribute of HTML element ____.",
-        choices: ["a. getElementbyClass", "b.getElementByID", "c. getElementbyName", "d. getElementbyFunction"],
+        choices: ["a. getElementbyClass", "b. getElementByID", "c. getElementbyName", "d. getElementbyFunction"],
         answer: "b. getElementByID"
     },
     {
@@ -48,12 +48,12 @@ var Quizquestions = [
     {
         question: "Identify one looping structure in Javascript?",
         choices: ["a. For", "b. when", "c. where", "d. if"],
-        answer: "a. for"
+        answer: "a. For"
     },
     {
         question: "What function is used to convert numbers between different bases?",
         choices: ["a. while loops", "b. convert", "c. parseNumber", "d. parseInt()"],
-        answer: "d. d. parseInt()"
+        answer: "d. parseInt()"
     },
     {
         question: "What will be the result of 3+2+ a string of 7?",
@@ -106,6 +106,14 @@ function Quiz(){
     timeLeft.textContent = OverallTime;
     userInitialInput.textContent = "";
 
+    // showQuestion();
+
+    startQuiz.style.display = "none";
+    scoreSummary.style.display = "none";
+    highScoreSection.style.display = "none"; 
+    questionTag.style.display = "block"; 
+
+
     var timer = setInterval(function(){
         OverallTime--;
         timeLeft.textContent = OverallTime;
@@ -115,7 +123,7 @@ function Quiz(){
                 gameEnd();
             }
         }
-    },10000);
+    },1000);
 
     showQuestion();
 }
@@ -129,21 +137,25 @@ function showQuestion() {
 }
 
 
-// Show if anser is correct or wrong
+// Show if answer is correct or wrong
 function AnswerValidation(answer) {
     lineBreak.style.display = "block";
     checkAnswer.style.display = "block";
-
-    if (questions[questIndex].answer === questions[questIndex].choices[answer]) {
+    console.log(Quizquestions[questIndex])
+    if (Quizquestions[questIndex].answer === Quizquestions[questIndex].choices[answer]) {
         // correct answer, add 1 to final score
         correctAnswer++;
         // console.log(correctAns);
         checkAnswer.textContent = "Correct!";
+        checkAnswer.style.color= "green";
+        checkAnswer.style.fontSize= "40px";
     } else {
         // wrong answer, take 10 second from timer
-        totalTime -= 10;
+        OverallTime -= 10;
         timeLeft.textContent = OverallTime;
-        checkAnswer.textContent = "Wrong! The correct answer is: " + questions[questIndex].answer;
+        checkAnswer.textContent = "Wrong! The correct answer is: " + Quizquestions[questIndex].answer;
+        checkAnswer.style.color= "red";
+        checkAnswer.style.fontSize= "40px";
     }
 
     questIndex++;
@@ -225,7 +237,7 @@ function showScores() {
     timer.style.display = "none";
     questionTag.style.display = "none";
     timeGone.style.display = "none";
-    summaryScore.style.display = "none";
+    scoreSummary.style.display = "none";
     highScoreSection.style.display = "block";
 
     var savedScores = localStorage.getItem("high scores");
